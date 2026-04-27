@@ -1,4 +1,4 @@
-Flask
-google-genai
-gunicorn
-python-dotenv
+.env
+__pycache__/
+*.db
+.venv/
