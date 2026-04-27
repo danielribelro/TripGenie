@@ -22,8 +22,3 @@ Este projeto está configurado para ser hospedado no Render.
 Build Command: pip install -r requirements.txt
 
 Start Command: gunicorn app:app
-
-📄 Licença
-Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
-
-Desenvolvido por Daniel Ribeiro
