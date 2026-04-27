@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>TripGenie | Início</title>
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1>✈️ TripGenie</h1>
+            <a href="/historico" style="color: #818cf8; text-decoration: none; font-weight: 600;">📂 Histórico</a>
+        </div>
+        <form id="travelForm" action="/salvar" method="post">
+            <label>Qual o destino?</label>
+            <input type="text" name="destino" placeholder="Ex: Itanhaém, SP" required>
+            <label>Onde vai dormir?</label>
+            <input type="text" name="hospedagem" placeholder="Ex: Pousada do Mar" required>
+            <button type="submit" id="btnGerar">Gerar Roteiro Inteligente</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('travelForm').onsubmit = function() {
+            let btn = document.getElementById('btnGerar');
+            btn.disabled = true;
+            btn.innerText = "Consultando a magia...";
+            btn.style.opacity = "0.7";
+        };
+    </script>
+</body>
+</html>

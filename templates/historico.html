@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Meus Roteiros</title>
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <h1>📚 Histórico</h1>
+            <a href="/" style="color: #94a3b8; text-decoration: none;">+ Novo</a>
+        </div>
+        
+        {% if not viagens %}
+            <p style="text-align: center; color: #94a3b8;">Nenhum roteiro salvo ainda.</p>
+        {% endif %}
+
+        {% for v in viagens %}
+        <div style="margin-top: 40px; background: rgba(255,255,255,0.01); padding: 20px; border-radius: 20px; border: 1px solid var(--border);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                    <h2 style="margin: 0;">📍 {{ v['destino'] }}</h2>
+                    <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 5px;">Hospedagem: {{ v['hospedagem'] }}</p>
+                </div>
+                <a href="/deletar/{{ v['id'] }}" class="btn-delete" onclick="return confirm('Apagar roteiro?')">🗑️</a>
+            </div>
+            <div class="roteiro-display">
+                {{ v['itinerario'] | safe }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
